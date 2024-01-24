@@ -1,5 +1,5 @@
 let carbonFootprintPoints = 0;
-const numberInHousehold = 3;
+//const numberInHousehold = 3;
 
 function determineHouseHoldPts() {
   console.log("Inside the function");
