@@ -1,7 +1,7 @@
 let carbonFootprintPoints = 0;
 //const numberInHousehold = 3;
 
-function determineHouseHoldPts() {
+function determineHouseHoldPts(numberInHousehold) {
   console.log("Inside the function");
   if (numberInHousehold === 1) {
     carbonFootprintPoints = carbonFootprintPoints + 14;
@@ -29,5 +29,31 @@ function determineHouseHoldPts() {
 
 // global scope
 
-determineHouseHoldPts(3);
-determineHouseHoldPts(4);
+//determineHouseHoldPts(3);
+//determineHouseHoldPts(4);
+
+//function for house size
+
+function sizePts(houseSize) {
+  switch (houseSize) {
+    case "large":
+      carbonFootprintPoints = carbonFootprintPoints + 10;
+      break;
+    case "medium":
+      carbonFootprintPoints = carbonFootprintPoints + 7;
+      break;
+    case "small":
+      carbonFootprintPoints = carbonFootprintPoints + 4;
+      break;
+    case "apartment":
+      carbonFootprintPoints = carbonFootprintPoints + 2;
+      break;
+    default:
+      console.log("no update to points");
+  }
+  console.log(
+    `Based on the ${houseSize} household the points would be ${carbonFootprintPoints}`
+  );
+}
+
+sizePts("small");
