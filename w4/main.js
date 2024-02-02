@@ -46,7 +46,7 @@ function determineHouseHoldPts(numberInHousehold) {
 }
 
 
-
+//
 function start(houseHoldMembers, houseHoldSize){
   const houseHoldSizePts = determineHouseSizePts(houseHoldSize);
   const householdMemberPts = determineHouseHoldPts(houseHoldMembers);
