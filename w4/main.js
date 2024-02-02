@@ -51,7 +51,7 @@ function start(houseHoldMembers, houseHoldSize){
   const houseHoldSizePts = determineHouseSizePts(houseHoldSize);
   const householdMemberPts = determineHouseHoldPts(houseHoldMembers);
   const total = houseHoldSizePts + householdMemberPts;
-  cfpData.push(houseHoldMembers, houseHoldSize, householdMemberPts, houseHoldSizePts, total);
+  cfpData.push([houseHoldMembers, houseHoldSize, householdMemberPts, houseHoldSizePts, total]);
   }
 
 function displayOutput() {
@@ -59,7 +59,7 @@ function displayOutput() {
     console.log(arr);
     const output = document.getElementById("output");
     const newP = document.createElement("p");
-    (newP.textContent = `HouseHold Size Points is ${arr[3]}. Household Member Points ${arr[2]} is Carbon Footprint total is ${arr[4]}`)
+    (newP.textContent = `HouseHold Size Points is ${arr[3]}. Household Member Points is ${arr[2]}. The Carbon Footprint total is ${arr[4]}`)
     output.appendChild(newP);
   }
 
