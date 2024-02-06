@@ -58,8 +58,15 @@ function displayOutput() {
   for (arr of cfpData){
     console.log(arr);
     const output = document.getElementById("output");
+    const newH2 = document.createElement("h2");
+    newH2.textContent = `Carbon Footprint ${arr[4]}`;
+    const newH3 = document.createElement("h3");
+    newH3.textContent = `Based on the number in and size of home`
     const newP = document.createElement("p");
-    (newP.textContent = `HouseHold Size Points is ${arr[3]}. Household Member Points is ${arr[2]}. The Carbon Footprint total is ${arr[4]}`)
+    newP.textContent = `This number is based on the number of people in the house of ${arr[0]} (score: ${arr[3]}),`
+    newP.textContent += ` and a ${arr[1]} size of home (score: ${arr[2]}).`
+    output.appendChild(newH2);
+    output.appendChild(newH3);
     output.appendChild(newP);
   }
 
