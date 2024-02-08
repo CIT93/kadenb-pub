@@ -59,7 +59,7 @@ function start(houseHoldMembers, houseHoldSize) {
 
 function displayOutput() {
   const output = document.getElementById("output");
-  output.innerHTML = ""; 
+  
 
   for (const obj of cfpData) {
     const newH2 = document.createElement("h2");
