@@ -16,6 +16,7 @@ function renderTblHeading(){
 }
 
 function renderTbl(data){
+  TBL.innerHTML = "";
   const table = renderTblHeading();
   const tbody = document.createElement("tbody");
 
