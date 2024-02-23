@@ -28,8 +28,8 @@ function renderTbl(data){
     const tdFirstName = document.createElement("td");
     tdFirstName.textContent = userInput.firstName;
 
-    const tdLastName = document.createElement("td");
-    tdLastName.textContent = userInput.lastName;
+    //const tdLastName = document.createElement("td");
+    //tdLastName.textContent = userInput.lastName;
 
     const tdHousehold = document.createElement("td");
     tdHousehold.textContent = userInput.houseMem;
@@ -37,10 +37,14 @@ function renderTbl(data){
     const tdHouseSize = document.createElement("td");
     tdHouseSize.textContent = userInput.houseSize;
 
+    const tdTotal = document.createElement("td");
+    tdTotal.textContent = userInput.cfpTotal;
+
     tr.appendChild(tdFirstName);
-    tr.appendChild(tdLastName);
+    //tr.appendChild(tdLastName);
     tr.appendChild(tdHousehold);
     tr.appendChild(tdHouseSize);
+    tr.appendChild(tdTotal);
 
     const tdActions = document.createElement("td");
     const btnEdit = document.createElement("button");
