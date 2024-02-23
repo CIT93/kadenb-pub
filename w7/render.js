@@ -18,13 +18,29 @@ function renderTblHeading(){
 function renderTbl(data){
   const table = renderTblHeading();
   const tbody = document.createElement("tbody");
+
+  data.forEach(function(cfpFinal){
+    const tr = document.createElement("tr");
+
+  Object.values(cfpFinal).forEach(function(result){
+    const td = document.createElement("td");
+    td.textContent = result;
+    tr.appendChild(td);
+
+  })
+
+  });
+  
+  
+  /*const table = renderTblHeading();
+  const tbody = document.createElement("tbody");
   const tr = document.createElement("tr");
-  const trTextArr = ["Kaden", 3, "Large", 20];
+  const trTextArr = ["", 3, "Large", 20];
   trTextArr.forEach(function(text){
     const td = document.createElement("td");
     td.textContent = text;
     tr.appendChild(td);
-  })
+  }*/
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
   const btnDel = document.createElement("button");
@@ -33,8 +49,8 @@ function renderTbl(data){
 
   td.appendChild(btnEdit);
   td.appendChild(btnDel);
-  tr.appendChild(td);
-  tbody.appendChild(tr);
+  //tr.appendChild(td);
+  //tbody.appendChild(tr);
   table.appendChild(tbody);
   
   
