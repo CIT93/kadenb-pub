@@ -23,6 +23,7 @@ function start(firstName, lastName, houseHoldMembers, houseHoldSize) {
   });
 }
 
+renderTbl(cfpData);
 
 FORM.addEventListener('submit', function(e){
   e.preventDefault();

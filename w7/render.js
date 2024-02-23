@@ -16,49 +16,55 @@ function renderTblHeading(){
 }
 
 function renderTbl(data){
-  TBL.innerHTML = "";
-  const table = renderTblHeading();
-  const tbody = document.createElement("tbody");
+  TBL.innerHTML = ""; 
+  const table = renderTblHeading(); 
+  const tbody = document.createElement("tbody"); 
 
-  data.forEach(function(cfpFinal){
+
+  data.forEach(function(userInput){
     const tr = document.createElement("tr");
 
-  Object.values(cfpFinal).forEach(function(result){
-    const td = document.createElement("td");
-    td.textContent = result;
-    tr.appendChild(td);
+  
+    const tdFirstName = document.createElement("td");
+    tdFirstName.textContent = userInput.firstName;
 
-  })
+    const tdLastName = document.createElement("td");
+    tdLastName.textContent = userInput.lastName;
 
+    const tdHousehold = document.createElement("td");
+    tdHousehold.textContent = userInput.houseMem;
+
+    const tdHouseSize = document.createElement("td");
+    tdHouseSize.textContent = userInput.houseSize;
+
+    tr.appendChild(tdFirstName);
+    tr.appendChild(tdLastName);
+    tr.appendChild(tdHousehold);
+    tr.appendChild(tdHouseSize);
+
+    const tdActions = document.createElement("td");
+    const btnEdit = document.createElement("button");
+    btnEdit.textContent = "Edit";
+    const btnDel = document.createElement("button");
+    btnDel.textContent = "Del";
+
+    tdActions.appendChild(btnEdit);
+    tdActions.appendChild(btnDel);
+
+
+    tr.appendChild(tdActions);
+    tbody.appendChild(tr);
   });
-  
-  
-  /*const table = renderTblHeading();
-  const tbody = document.createElement("tbody");
-  const tr = document.createElement("tr");
-  const trTextArr = ["", 3, "Large", 20];
-  trTextArr.forEach(function(text){
-    const td = document.createElement("td");
-    td.textContent = text;
-    tr.appendChild(td);
-  }*/
-  const td = document.createElement("td");
-  const btnEdit = document.createElement("button");
-  const btnDel = document.createElement("button");
-  btnEdit.textContent = "Edit";
-  btnDel.textContent = "Del";
 
-  td.appendChild(btnEdit);
-  td.appendChild(btnDel);
-  //tr.appendChild(td);
-  //tbody.appendChild(tr);
+  
   table.appendChild(tbody);
-  
-  
+
+
   TBL.appendChild(table);
+}
   
 
   
-}
+
 
 export{renderTbl, renderTblHeading};
