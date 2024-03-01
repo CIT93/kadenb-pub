@@ -35,7 +35,13 @@ function renderBtn(index, data){
     renderTbl(data);
   })
   btnEdit.addEventListener('click', function(e){
+    const obj = data[index];
     
+    document.getElementById("firstName").value = obj.firstName;
+    document.getElementById("lastName").value = obj.lastName;
+    document.getElementById("householdMembers").value = obj.housedMem;
+    document.getElementById("houseSize").value = obj.HouseSize;
+   
   })
   return td;
 }
@@ -60,10 +66,13 @@ function renderBody(data) {
 }
 
 function renderTbl(data) {
-  const table = renderTblHeading();
-  const tbody = renderBody(data);
-  table.appendChild(tbody);
-  TBL.appendChild(table);
+  TBL.innerHTML = ""; 
+  if (data.length > 0) {
+    const table = renderTblHeading();
+    const tbody = renderBody(data);
+    table.appendChild(tbody);
+    TBL.appendChild(table);
+  }
 }
 
 export { renderTbl };
