@@ -6,11 +6,6 @@
     <title>Week 6 - Carbon Footprint</title>
     <script type="module" src="main.js"></script>
    <link rel="stylesheet" href="style.css">
-   <style>
-    .error {
-        color: red;
-    }
-</style>
   </head>
   <body>
     <form id="form">
@@ -18,15 +13,20 @@
       <fieldset>
         <legend>Calculating Your Carbon Footprint Points</legend>
         <div>
-          <label for="firstName">First Name:</label>
-          <input type="text" id="firstname">
-          <span id="firstNameError" class="error" role="alert"></span>
-      </div>
-      <div>
-          <label for="lastName">Last Name:</label>
-          <input type="text" id="lastname">
-          <span id="lastNameError" class="error" role="alert"></span>
-      </div>
+            <label for="">First Name:</label>
+            <input type="text" name="firstname" id ="firstName" maxlength="20" required/>
+            <span id="firstNameError" class="error"></span>
+        </div>
+        <div>
+            <label for="">Last Name:</label>
+            <input type="text" name="lastname" id="lastName" maxlength="20" required />
+            <span id="lastNameError" class="error"></span>
+        </div>
+        <div>
+            <label for="">Count the members in your household:</label>
+            <input type="number" name="housemember" min="1" max="6" required />
+        </div>
+        <div>
             <label for="">Consider the size of your home:</label>
             <!-- <input type="text" name="housesize" required /> -->
             <select name="housesize" required>
@@ -38,42 +38,11 @@
 
             </select>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Submit</button><br>
+        <span id="submitError" class="error"></span>
       </fieldset>
       
     </form>
-    <script>
-      // Function to validate a single field
-      const validateField = event => {
-          const field = event.target.value;
-          const fieldId = event.target.id;
-          const fieldError = document.getElementById(`${fieldId}Error`);
-
-          if (field === '') {
-              fieldError.textContent = `${fieldId} is required`;
-              event.target.classList.add('invalid');
-          } else {
-              fieldError.textContent = '';
-              event.target.classList.remove('invalid');
-          }
-      };
-
-      // Attach blur event listeners
-      document.getElementById('firstname').addEventListener('blur', validateField);
-      document.getElementById('lastname').addEventListener('blur', validateField);
-      
-      // Listen for form submission
-      document.getElementById('form').addEventListener('submit', function (event) {
-          //Prevent default behavior
-          event.preventDefault();
-          const firstNameIsValid = document.getElementById('firstname').value !== '';
-          const lastNameIsValid = document.getElementById('lastname').value !== '';
-          if (firstNameIsValid && lastNameIsValid) {
-              alert('Form is valid. You can proceed with submitting the form to the server.');
-          }
-      })
-
-  </script>
     <div id="output"></div>
     <div id="tab-data"></div>
     
