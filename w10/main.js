@@ -3,7 +3,7 @@ import { determineHouseSizePts, determineHouseHoldPts } from "./cfp.js";
 import {FORM, FNAME, LNAME, SUBMIT} from "./global.js";
 import {saveLS, cfpData} from "./storage.js"
 
-const start = function(firstName, lastName, houseHoldMembers, houseHoldSize) {
+const start = (firstName, lastName, houseHoldMembers, houseHoldSize) => {
   const houseSizePts = determineHouseSizePts(houseHoldSize);
   const householdMemberPts = determineHouseHoldPts(houseHoldMembers);
   const total = houseSizePts + householdMemberPts;
@@ -21,7 +21,7 @@ const start = function(firstName, lastName, houseHoldMembers, houseHoldSize) {
 
 renderTbl(cfpData);
 
-const validateField = function (event) {
+const validateField = event => {
   const field = event.target.value;
   const fieldId = event.target.id;
   const fieldError = document.getElementById(`${fieldId}Error`);
@@ -42,7 +42,7 @@ LNAME.addEventListener('blur', validateField);
 
 
 
-FORM.addEventListener('submit', function(e){
+FORM.addEventListener('submit', e => {
   e.preventDefault();
   if (FNAME.value !== '' && LNAME.value !== '') {
     SUBMIT.textContent = '';
@@ -55,3 +55,26 @@ FORM.addEventListener('submit', function(e){
     SUBMIT.textContent = "Form requires first and last name";
   }
 })
+
+const updatedStart = (...x) => {
+  const houseSizePts = determineHouseSizePts(x[0]);
+  const householdMemberPts = determineHouseHoldPts(x[1]);
+  const total = houseSizePts + householdMemberPts;
+
+  cfpData.push({
+    firstName: firstName,
+    lastName: lastName,
+    houseMem: houseHoldMembers,
+    houseSize: houseHoldSize,
+    houseMemPts: x[0],
+    houseSPts: x[1],
+    cfpTotal: total,
+  });
+}
+
+
+
+//const add2 = a => 2 + a;
+
+
+//const result = add2(100);

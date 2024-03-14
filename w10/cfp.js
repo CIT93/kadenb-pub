@@ -1,4 +1,4 @@
-const determineHouseSizePts = function(size) {
+const determineHouseSizePts = size => {
     let houseSizePoints = 0;
     switch (size) {
       case "large":
@@ -19,7 +19,7 @@ const determineHouseSizePts = function(size) {
     return houseSizePoints;
   }
   
- const determineHouseHoldPts = function(numberInHousehold) {
+ const determineHouseHoldPts = numberInHousehold => {
     let houseHoldPts = 0;
     if (numberInHousehold === 1) {
       houseHoldPts = 14;
