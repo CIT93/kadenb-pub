@@ -11,6 +11,7 @@ const renderTblHeading = () => {
     "Household",
     "HouseSize",
     "Footprint",
+    "Food",
     "Actions",
   ];
   headingTxtArr.forEach( text => {
@@ -45,6 +46,7 @@ const renderBtn = (obj, index, data) => {
     FORM[2].value = obj.last;
     FORM[3].value = obj.houseMembers;
     FORM[4].value = obj.houseSize;
+    FORM[5].value = obj.cfpFood;
     onUpdate(index, data);
   })
   return td;
@@ -56,7 +58,7 @@ const renderBody = data =>  {
   data.forEach( (obj, index) => {
     const tr = document.createElement("tr");
     for (const [key, value] of Object.entries(obj)) {
-      if (key !== "last" && key !== "householdPoints" && key !== "houseSizePoints") {
+      if (key !== "last" && key !== "householdPoints" && key !== "houseSizePoints" && key !== "foodPts") {
         const td = document.createElement("td");
         td.textContent = value;
         tr.appendChild(td);

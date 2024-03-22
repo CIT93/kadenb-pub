@@ -4,10 +4,10 @@ class FP {
       this.last = last;
       this.houseMembers = houseMembers;
       this.houseSize = houseSize;
+      this.cfpFood = cfpFood;
       this.householdPoints();
       this.houseSizePoints();
-      this.cfpFood = cfpFood;
-      this.foodPts();
+      this.foodPts;
     
       this.total();
     }
@@ -45,7 +45,7 @@ class FP {
     }
 
 
-    determineFoodPts() {
+    foodPts() {
     switch (this.cfpFood) {
       case "daily":
         this.foodPts = 10;
@@ -56,7 +56,7 @@ class FP {
       case "veg":
         this.foodPts = 4;
         break;
-      case "vegan or wild meat":
+      case "veganWild":
         this.foodPts = 2;
         break;
       case "prepackaged":

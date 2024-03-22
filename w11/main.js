@@ -7,8 +7,7 @@ import { FP } from "./fp.js"
 const start = (firstName, lastName, houseHoldMembers, houseHoldSize, cfpFood) => {
   const houseSizePts = determineHouseSizePts(houseHoldSize);
   const householdMemberPts = determineHouseHoldPts(houseHoldMembers);
-  const foodPts = determineFoodPts(eatMeat);
-  const total = houseSizePts + householdMemberPts + foodPts;
+  const total = houseSizePts + householdMemberPts;
 
   cfpData.push({
     firstName: firstName,
@@ -51,7 +50,7 @@ FORM.addEventListener('submit', e => {
   if (FNAME.value !== '' && LNAME.value !== '') {
     SUBMIT.textContent = '';
     //start(FNAME.value, LNAME.value, parseInt(FORM.housemember.value), FORM.housesize.value);
-    const fpObj = new FP(FNAME.value, LNAME.value, parseInt(FORM.housemember.value), FORM.housesize.value);
+    const fpObj = new FP(FNAME.value, LNAME.value, parseInt(FORM.housemember.value), FORM.housesize.value, FORM.food.value);
     //fpObj.householdPoints();
     //fpObj.houseSizePoints();
     cfpData.push(fpObj);

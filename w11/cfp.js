@@ -53,7 +53,7 @@ const determineHouseSizePts = (size = "medium") => {
       case "veg":
         foodPts = 4;
         break;
-      case "vegan or wild meat":
+      case "veganWild":
         foodPts = 2;
         break;
       case "prepackaged":
