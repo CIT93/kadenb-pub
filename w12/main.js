@@ -1,20 +1,24 @@
-const FORM = document.getElementById("form");
-const OUTPUT = document.getElementById("output");
+const FORM = document.getElementById('form');
+const OUTPUT = document.getElementById('output');
 
-const displayWorkout = function(callback) {
-    const userExercise = document.getElementById('exercise').value;
-    const userReps = parseInt(document.getElementById('reps').value);
-    const userTime = parseFloat(document.getElementById('time').value);
+function updateDOM(message, el) {
+    const newEl = document.createElement(el);
+    newEl.textContent = message;
+    OUTPUT.appendChild(newEl); 
+}
 
-    const h1 = document.createElement("h1");
-    h1.textContent = `Start ${userExercise}! Your goal is ${userReps}!`;
-    OUTPUT.appendChild(h1);
-
+const startWorkout = (exercise, reps, time, fn) => {
+    fn(`Start ${exercise} <> Goal reps is ${reps} <> complete in ${time} min!`, 'p');
     setTimeout(() => {
-        callback(userExercise);
-    }, 1000);
+        fn(`Stop ${exercise}`, "h1");
+    }, time * 1000);
 }
 
-const stopWorkout = (userExercise) => {
-    
-}
+FORM.addEventListener('submit', e => {
+    e.preventDefault();
+    const exercise = e.target.exercise.value;
+    const reps = parseFloat(e.target.reps.value);
+    const time = parseFloat(e.target.time.value);
+    startWorkout(exercise, reps, time, updateDOM); 
+    FORM.reset();
+});
