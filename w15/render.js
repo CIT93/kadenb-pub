@@ -1,9 +1,27 @@
 import {FORM, TBL} from "./global.js"
 import {saveLS} from "./storage.js"
 
+const calculateAvg = (data) => {
+  const reduceTotal = data.reduce((sum, ea) => sum + ea.total,0);
+  const tableRef = document.getElementById("table-id");
+  let newRow = tableRef.insertRow(-1);
+  let newCell = newRow.insertCell(0);
+  let newCell_1 = newRow.insertCell(0);
+  let newCell_2 = newRow.insertCell(0);
+  let newCell_3 = newRow.insertCell(0);
+  let newCell_4 = newRow.insertCell(0);
+  let newLabl = document.createTextNode('Average Footprint')
+  let newText = document.createTextNode(`${Math.floor(reduceTotal/data.length)}`)
+  newCell_1.appendChild(newLabl);
+  newCell.appendChild(newText);
+}
+
+
+
 const renderTblHeading = () => {
   TBL.innerHTML = "";
   const table = document.createElement("table");
+  table.setAttribute("id", "table-id");
   const thead = document.createElement("thead");
   const tr = document.createElement("tr");
   const headingTxtArr = [
@@ -73,34 +91,14 @@ const renderBody = data =>  {
   return tbody;
 }
 
-const calculateAvgFP = data => {
-  if (data.length === 0) {
-    return 0;
-  }
-  
-  const totalFP = data.reduce((sum, obj) => sum + obj.cfpFood, 0);
-  const avgFP = totalFP / data.length;
-  return avgFP;
-};
-
 const renderTbl = data => {
   TBL.innerHTML = ""; 
   if (data.length > 0) {
     const table = renderTblHeading();
     const tbody = renderBody(data);
     table.appendChild(tbody);
-
-    const averageFootprint = calculateAvgFP(data);
-    const tfoot = document.createElement("tfoot");
-    const tr = document.createElement("tr");
-    const td = document.createElement("td");
-    td.setAttribute("colspan", "6");
-    td.textContent = `Average Footprint Score: ${averageFootprint.toFixed(2)}`;
-    tr.appendChild(td);
-    tfoot.appendChild(tr);
-
-    table.appendChild(tfoot);
     TBL.appendChild(table);
+    calculateAvg(data);
   }
 };
 
