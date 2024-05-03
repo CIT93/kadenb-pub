@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 10 - Carbon Footprint</title>
+  <script type="module" src="main.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form id="form">
+    <fieldset>
+      <legend>Calculating Your Carbon Footprint Points</legend>
+      <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" name="firstname" id="firstName" maxlength="20" required/>
+        <span id="firstNameError" class="error"></span>
+      </div>
+      <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastname" id="lastName" maxlength="20" required />
+        <span id="lastNameError" class="error"></span>
+      </div>
+      <div>
+        <label for="housemember">Count the members in your household:</label>
+        <input type="number" name="housemember" id="housemember" min="1" max="6" required />
+      </div>
+      <div>
+        <label for="housesize">Consider the size of your home:</label>
+        <select name="housesize" id="housesize" required>
+          <option value="">---Please enter size of home---</option>
+          <option value="apartment">Apartment</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+      </div>
+      <div>
+        <label for="food">How much meat do you eat a week?:</label>
+        <select name="food" id="food" required>
+          <option value="">---Please enter meals---</option>
+          <option value="daily">Daily</option>
+          <option value="few">Few Times</option>
+          <option value="veg">Vegetarian</option>
+          <option value="veganWild">Vegan Or Wild Meat</option>
+        </select>
+      </div>
+      <div>
+        <label for="foodSource">Evaluate your food sources:</label>
+        <select name="foodSource" id="foodSource" required>
+          <option value="">---Sources of Food---</option>
+          <option value="packed">Prepackaged convenience food</option>
+          <option value="balance">Good balance of fresh and convenience food</option>
+          <option value="local">Only eat fresh, locally grown, or hunted food</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="both">Do you have a dishwasher and washing machine?</label>
+        <input type="checkbox" id="both" name="both" checked />
+      </div>
+
+      <label for="waterCon">Water Consumption:</label>
+      <select name="waterCon" id="waterCon" required>
+        <option value="">---How many times do you run your dishwasher or washing machine---</option>
+        <option value="3">More than 9 times a week</option>
+        <option value="2">Between 4 to 9 times a week</option>
+        <option value="1">Between 1 to 3 times a week</option>
+        <option value="0">Don't have a dishwasher</option>
+      </select>
+    </div>
+      <button type="submit">Submit</button><br>
+      <span id="submitError" class="error"></span>
+    </fieldset>
+  </form>
+  <div id="output"></div>
+  <div id="tab-data"></div>
+  <table id="table-id"></table>
+</body>
+</html>
