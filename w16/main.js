@@ -1,5 +1,5 @@
 import { renderTbl } from "./render.js";
-import { determineHouseSizePts, determineHouseHoldPts, determineFoodPts, determineFoodSourcePts} from "./cfp.js";
+//import { determineHouseSizePts, determineHouseHoldPts, determineFoodPts, determineFoodSourcePts} from "./cfp.js";
 import {FORM, FNAME, LNAME, SUBMIT} from "./global.js";
 import {saveLS, cfpData} from "./storage.js"
 import { FP } from "./fp.js"

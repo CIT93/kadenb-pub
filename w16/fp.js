@@ -1,12 +1,13 @@
 class FP {
-  constructor(first, last, houseMembers, houseSize, cfpFood, foodSource, waterCon) {
+  constructor(first, last, houseMembers, houseSize, cfpFood, foodSource, waterCon, houseP) {
     this.first = first;
     this.last = last;
     this.houseMembers = houseMembers;
     this.houseSize = houseSize;
     this.cfpFood = cfpFood;
     this.foodSource = foodSource;
-    this.waterPts = waterCon;
+    this.waterCon = waterCon;
+    this.houseP = houseP;
     this.calculateHouseholdPoints();
     this.calculateHouseSizePoints();
     this.calculateFoodPts();
@@ -80,13 +81,27 @@ class FP {
     }
   }
 
+  /*calculatePurchases() {
+    if(this.houseP <= 7) {
+      this.purPts = 10;
+    } else if (this.houseP === 5 || this.houseP === 6 || this.houseP === 7) {
+      this.purPts = 8;
+    } else if (this.houseP === 3 || this.houseP === 4) {
+      this.purPts = 6;
+    }
+  }*/ 
+
+  //began to write this than realized we can use the same method we used for water consumption
+
 
   calculateTotal() {
     this.total =
       this.householdPoints +
       this.houseSizePoints +
       this.foodPts +
-      this.foodSourcePts;
+      this.foodSourcePts +
+      this.waterCon +
+      this.houseP;
   }
 } 
 

@@ -36,9 +36,9 @@
         </select>
       </div>
       <div>
-        <label for="food">How much meat do you eat a week?:</label>
+        <label for="food">Meat Consumption:</label>
         <select name="food" id="food" required>
-          <option value="">---Please enter meals---</option>
+          <option value="">---How much meat do you eat a week?---</option>
           <option value="daily">Daily</option>
           <option value="few">Few Times</option>
           <option value="veg">Vegetarian</option>
@@ -59,7 +59,7 @@
         <label for="both">Do you have a dishwasher and washing machine?</label>
         <input type="checkbox" id="both" name="both" checked />
       </div>
-
+      <div>
       <label for="waterCon">Water Consumption:</label>
       <select name="waterCon" id="waterCon" required>
         <option value="">---How many times do you run your dishwasher or washing machine---</option>
@@ -67,6 +67,17 @@
         <option value="2">Between 4 to 9 times a week</option>
         <option value="1">Between 1 to 3 times a week</option>
         <option value="0">Don't have a dishwasher</option>
+      </select>
+    </div>
+    <div>
+      <label for="houseP">Household Purchases:</label>
+      <select name="houseP" id="houseP" required>
+        <option value="">---How many household purchases do you make in a year?---</option>
+        <option value="10">More than 7</option>
+        <option value="8">Between 5-7 items</option>
+        <option value="6">Between 3-5 items</option>
+        <option value="3">Less than 3</option>
+        <option value="2">None or secondhand items</option>
       </select>
     </div>
       <button type="submit">Submit</button><br>
