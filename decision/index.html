@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finding your Dog!</title>
+    <script type="module" src="main.js"></script>
+   <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <form id="form">
+        
+      <fieldset>
+        <legend> 💖 Finding your perfect 🐶!</legend>
+        <div>
+          <label for="">🐾 What size dog would you like? 🐾</label>
+          <select name="dogsize" required>
+            <option value="">---Please enter size of dog---</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+
+          </select>
+      </div>
+      <div>
+        <label for="">🦴 What energy level do you want in a dog? 🦴</label>
+        <select name="dogenergy" required>
+          <option value="">---Please enter energy of dog---</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+
+        </select>
+    </div>
+    <div>
+      <label for="">🐕 Are you willing to take the dog on walks? 🐕</label>
+      <select name="dogwalk" required>
+        <option value="">---Please answer---</option>
+        <option value=true>yes</option>
+        <option value=false>no</option>
+
+      </select>
+      <div>
+        <label for="">🐩 How old do you want your dog to be? 🐩</label>
+          <input type="number" name="userage" min="1" max="20" required />      
+  </div>
+        <button type="submit">Submit</button>
+      </fieldset>
+      
+    </form>
+    <div id="output"></div>
+    <div id="tab-data"></div>
+  </body>
+</html>
